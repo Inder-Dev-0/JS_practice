@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-WXFIkd1wOpVvzyZVg0qwZtnCcC21kFN1cA&s" alt=""></li>
+            <li><img width="200px" id="japan" src="https://i.insider.com/5d264d1fb44ce765c0045293?width=1067&format=jpeg" alt=""></li>
+            <li><img width="200px" id="river" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAbF-G-laRMkV0mEPIcniKs-c0nWXMz20mMg&s" alt=""></li>
+            <li><img width="200px" id="owl" src="https://i0.wp.com/harpswellanchor.org/wp-content/uploads/2024/06/Ed-Robinson-24-scaled.jpg?resize=800%2C500&ssl=1" alt=""></li>
+            <li><img width="200px" id="prayer" src="https://www.globaldisciples.ca/wp-content/uploads/2023/07/5-steps-to-powerful-intecessory-prayer-768x548.jpg" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+
+    //--------------------------------------------------------
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("Clicked inside the ul");
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("Owl Clicked");
+    //     e.stopPropagation()
+    // }, false)
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     console.log("google Clicked");
+    // }, false)
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName)
+        if (e.target.tagName === 'IMG') {   
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            // removeIt.remove()
+            removeIt.parentNode.removeChild(removeIt)
+        }
+    })
+
+</script>
+</html>
